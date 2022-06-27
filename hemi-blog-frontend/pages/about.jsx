@@ -1,4 +1,4 @@
-import { Box, Flex , Grid, GridItem, Text, Input, InputGroup, InputLeftElement} from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea } from '@chakra-ui/react'
 import { PhoneIcon, InfoOutlineIcon, EmailIcon, EditIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 import React from 'react'
@@ -20,23 +20,31 @@ export default function about() {
 
             </Flex>
             <Grid justifyContent='center' mt='5rem' gap='3'>
-                <GridItem><InputGroup w='30rem'><InputLeftElement 
-                pointerEvents='none'
-                children={<InfoOutlineIcon color='white' />} />
-                <Input placeholder='İsminiz' />
-                </InputGroup>
+                <GridItem>
+                    <InputGroup w='30rem'>
+                        <InputLeftElement pointerEvents='none' >
+                            <InfoOutlineIcon color='white' />
+                        </InputLeftElement>
+                        <Input placeholder='İsminiz' />
+                    </InputGroup>
                 </GridItem>
-                <GridItem><InputGroup w='30rem'><InputLeftElement 
-                pointerEvents='none'
-                children={<EmailIcon color='white' />} />
-                <Input placeholder='E-Mailiniz' />
-                </InputGroup>
+
+                <GridItem>
+                    <InputGroup w='30rem'>
+                        <InputLeftElement pointerEvents='none'>
+                            <EmailIcon color='white' />
+                        </InputLeftElement>
+                        <Input placeholder='E-Mailiniz' />
+                    </InputGroup>
                 </GridItem>
-                <GridItem><InputGroup w='30rem'><InputLeftElement 
-                pointerEvents='none'
-                children={<EditIcon color='white' />} />
-                <Input placeholder='Mesajınız' h='20rem' />
-                </InputGroup>
+
+                <GridItem>
+                    <InputGroup w='30rem'>
+                        <InputLeftElement pointerEvents='none'>
+                            <EditIcon color='white' />
+                        </InputLeftElement>
+                        <Textarea placeholder='Mesajınız' />
+                    </InputGroup>
                 </GridItem>
             </Grid>
 
