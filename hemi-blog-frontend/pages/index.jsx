@@ -7,8 +7,8 @@ export default function Home() {
 
   const postList = [
     {
-      title: "Hasan'ın Nude Yayıldı Aq!",
-      subtitle: "Görmek için hemen tıklayın!"
+      title: "Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq!Hasan'ın Nude Yayıldı Aq!",
+      subtitle: "Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın!"
     },
     {
       title: "Post 1",
@@ -40,6 +40,10 @@ export default function Home() {
     },
     {
       title: "Post 4",
+      subtitle: "Açıklama 4"
+    },
+    {
+      title: "Post 6",
       subtitle: "Açıklama 4"
     },
   ]
@@ -80,7 +84,7 @@ export default function Home() {
 
         <Grid templateColumns='repeat(4, 1fr)' gap={6} marginTop="2rem" marginBottom="4rem">
           {
-            postList.slice(1).map((x, i) =>
+            postList.slice(1, 9).map((x, i) =>
               <GridItem key={i} w='100%' h='10rem'>
                 <Box w="100%" h="80%" bgGradient='linear(to-l, #7928CA, #FF0080)' flexShrink="0" />
                 <Text className='oneLineClamp' fontWeight="bold" textOverflow="ellipsis" overflow="hidden">
