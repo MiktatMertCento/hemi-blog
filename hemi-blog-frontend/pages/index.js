@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Header from '../components/header'
+import Title from '../components/title'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -12,7 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
+      <div>
+        <Title>
+          HEMİ Blog
+        </Title>
+      </div>
 
     </div>
   )

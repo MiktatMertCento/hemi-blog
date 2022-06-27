@@ -15,6 +15,7 @@ import {
   useColorMode,
   Center,
   Text,
+  Container
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router'
