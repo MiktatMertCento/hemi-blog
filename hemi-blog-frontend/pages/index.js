@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react'
 import Head from 'next/head'
 import Title from '../components/title'
 import styles from '../styles/Home.module.css'
@@ -12,9 +13,11 @@ export default function Home() {
       </Head>
 
       <div>
-        <Title>
-          HEMİ Blog
+        <Title marginLeft="2">
+          The Blog.
         </Title>
+
+
       </div>
 
     </div>
