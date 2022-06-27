@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, Image } from '@chakra-ui/react'
 import Head from 'next/head'
 import Title from '../components/title'
 import styles from '../styles/Home.module.css'
@@ -17,7 +17,9 @@ export default function Home() {
           The Blog.
         </Title>
 
-        
+        <Flex>
+            <Image></Image>
+        </Flex>
       </div>
 
     </div>
