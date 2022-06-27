@@ -1,9 +1,9 @@
 import { Text } from "@chakra-ui/react";
 
-export default function Title({ children }) {
+export default function Title(props) {
     return (
-        <Text fontSize="xx-large" fontWeight="bold">
-            {children}
+        <Text {...props} fontSize="xx-large" fontWeight="bold">
+            {props.children}
         </Text>
     )
 }

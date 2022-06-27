@@ -4,6 +4,25 @@
 
 html,
 body {
+  font-size: 16px;
   padding: 0;
   margin: 0;
+}
+
+.oneLineClamp {
+  -webkit-line-clamp: 1 !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.threeLineClamp {
+  -webkit-line-clamp: 3 !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.fourLineClamp {
+  -webkit-line-clamp: 4 !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
 }
