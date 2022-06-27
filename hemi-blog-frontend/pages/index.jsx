@@ -15,6 +15,11 @@ export default function Home() {
         <Title>
           HEMİ Blog
         </Title>
+<<<<<<< HEAD:hemi-blog-frontend/pages/index.js
+=======
+
+        
+>>>>>>> 5c99b788157e9d1c8cfcba9ed16c4287aeb54813:hemi-blog-frontend/pages/index.jsx
       </div>
 
     </div>
