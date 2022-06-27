@@ -17,7 +17,7 @@ export default function Home() {
           The Blog.
         </Title>
 
-
+        
       </div>
 
     </div>
