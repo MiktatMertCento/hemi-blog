@@ -39,11 +39,11 @@ export default function about() {
                 </GridItem>
 
                 <GridItem>
-                    <InputGroup w='30rem'>
+                    <InputGroup w='30rem' >
                         <InputLeftElement pointerEvents='none'>
                             <EditIcon color='white' />
                         </InputLeftElement>
-                        <Textarea placeholder='Mesajınız' />
+                        <Textarea placeholder='Mesajınız' paddingInlineEnd='1rem' paddingInlineStart='2.5rem' />
                     </InputGroup>
                 </GridItem>
             </Grid>
