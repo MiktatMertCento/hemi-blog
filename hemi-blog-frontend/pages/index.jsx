@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Title from '../components/title'
 import homeStyles from '../styles/Home.module.css'
@@ -7,8 +7,8 @@ export default function Home() {
 
   const postList = [
     {
-      title: "Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq! Hasan'ın Nude Yayıldı Aq!Hasan'ın Nude Yayıldı Aq!",
-      subtitle: "Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın! Görmek için hemen tıklayın!"
+      title: "Windows 11 Yeni Güncellemesi İle Android Subsystem Desteğini Çok Yakında Alıyor!",
+      subtitle: "Bildiğiniz üzere uzun zamandır üzerinde çalışılan ve testleri yapılan android subsystem desteği çok yakında Windows 11 xxx sürümünde sizlere ilk stable sürümü ile kavuşacak."
     },
     {
       title: "Post 1",
@@ -56,53 +56,30 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/*
-    
-    
-      <Title marginLeft="12rem">
-        HEMİ Blog
-      </Title>
+      <Box>
+        <Title>
+          Son Postlar
+        </Title>
 
-      <Box margin="0px 12rem 0px 12rem">
-        <Flex alignItems="start" justifyContent="start" gap="1rem" height="18rem">
-          <Box w="25rem" h="18rem" bgGradient='linear(to-l, #7928CA, #FF0080)'  />
-          <Flex h="18rem" flexDir="column" justify="space-between">
-            <Text>
-              20 Mart, 2022
-            </Text>
+        <Grid h='250px' templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4}>
+          <GridItem rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 5 }} bg='tomato'>
+            Post 1
+          </GridItem>
 
-            <Text className='threeLineClamp' fontWeight="bold" maxWidth="20rem" fontSize="2rem" overflow="hidden" lineHeight="10" textOverflow="ellipsis"  >
-              {
-                postList[0].title
-              }
-            </Text>
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 2 }} colSpan={{ base: 0, md: 4 }} bg='tomato'>
+            Post 2
+          </GridItem>
 
-            <Text className='fourLineClamp' overflow="hidden" textOverflow="ellipsis"  >
-              {
-                postList[0].subtitle
-              }
-            </Text>
-          </Flex>
-        </Flex>
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }} bg='tomato'>
+            Post 3
+          </GridItem>
 
-        <Grid templateColumns='repeat(4, 1fr)' gap={6} marginTop="2rem" marginBottom="4rem">
-          {
-            postList.slice(1, 9).map((x, i) =>
-              <GridItem key={i} w='100%' h='10rem'>
-                <Box w="100%" h="80%" bgGradient='linear(to-l, #7928CA, #FF0080)' flexShrink="0" />
-                <Text className='oneLineClamp' fontWeight="bold" textOverflow="ellipsis" overflow="hidden">
-                  {x.title}
-                </Text>
-                <Text className='threeLineClamp' textOverflow="ellipsis" overflow="hidden">
-                  {x.subtitle}
-                </Text>
-              </GridItem>
-            )
-          }
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }} bg='tomato'>
+            Post 4
+          </GridItem>
         </Grid>
       </Box>
-    
-      */}
+
 
     </>
   )

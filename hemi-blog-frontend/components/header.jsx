@@ -23,7 +23,7 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router'
 
 
-export default function Header() {
+export default function Header(props) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
@@ -32,6 +32,10 @@ export default function Header() {
     {
       title: "Anasayfa",
       path: "/"
+    },
+    {
+      title: "Postlar",
+      path: "/posts"
     },
     {
       title: "Hakkında",
@@ -45,33 +49,29 @@ export default function Header() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box {...props} bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems='center' justifyContent='space-between'>
           <Flex alignItems='center' gap={3}>
             <Box>
-              <Text fontWeight="bold">
+              <Button variant="link" onClick={() => handleRoute({ path: "/" })} fontWeight="bold">
                 HEMİ Blog
-              </Text>
-            </Box>
-
-            <Box display={{ base: "none", md: "block" }}>
-              {
-                menuList.map(menu => {
-                  return (
-                    <Button key={menu.path} onClick={() => handleRoute(menu)} variant={menu.path !== router.pathname ? "ghost" : "solid"}>
-                      {menu.title}
-                    </Button>
-                  )
-                })
-              }
+              </Button>
             </Box>
           </Flex>
 
           <Flex alignItems='center'>
-            <Stack direction='row' spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
+            <Stack direction='row' spacing={3}>
+              <Stack direction='row' spacing={3} display={{ base: "none", md: "block" }}>
+                {
+                  menuList.map(menu => {
+                    return (
+                      <Button key={menu.path} onClick={() => handleRoute(menu)} variant={menu.path !== router.pathname ? "ghost" : "solid"}>
+                        {menu.title}
+                      </Button>
+                    )
+                  })
+                }
+              </Stack>
 
               <Box display={{ base: "block", md: "none" }}>
                 <Menu>
@@ -98,6 +98,10 @@ export default function Header() {
                   </MenuList>
                 </Menu>
               </Box>
+
+              <Button onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              </Button>
             </Stack>
           </Flex>
         </Flex>
