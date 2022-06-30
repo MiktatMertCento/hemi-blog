@@ -56,25 +56,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/*
+    
+    
       <Title marginLeft="12rem">
         HEMİ Blog
       </Title>
 
       <Box margin="0px 12rem 0px 12rem">
         <Flex alignItems="start" justifyContent="start" gap="1rem" height="18rem">
-          <Box w="50%" h="100%" bgGradient='linear(to-l, #7928CA, #FF0080)' flexShrink="0" />
-          <Flex h="100%" flexDir="column" justify="space-between">
+          <Box w="25rem" h="18rem" bgGradient='linear(to-l, #7928CA, #FF0080)'  />
+          <Flex h="18rem" flexDir="column" justify="space-between">
             <Text>
               20 Mart, 2022
             </Text>
 
-            <Text className='threeLineClamp' fontWeight="bold" maxWidth="20rem" fontSize="2rem" overflow="hidden" lineHeight="10" textOverflow="ellipsis">
+            <Text className='threeLineClamp' fontWeight="bold" maxWidth="20rem" fontSize="2rem" overflow="hidden" lineHeight="10" textOverflow="ellipsis"  >
               {
                 postList[0].title
               }
             </Text>
 
-            <Text className='fourLineClamp' overflow="hidden" textOverflow="ellipsis">
+            <Text className='fourLineClamp' overflow="hidden" textOverflow="ellipsis"  >
               {
                 postList[0].subtitle
               }
@@ -98,6 +101,9 @@ export default function Home() {
           }
         </Grid>
       </Box>
+    
+      */}
+
     </>
   )
 }

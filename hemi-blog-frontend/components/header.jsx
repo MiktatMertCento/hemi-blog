@@ -2,7 +2,6 @@ import {
   Box,
   Flex,
   Avatar,
-  Link,
   Button,
   Menu,
   MenuButton,
@@ -15,9 +14,12 @@ import {
   useColorMode,
   Center,
   Text,
-  Container
+  MenuIcon,
+  IconButton,
+  MenuOptionGroup,
+  MenuItemOption
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router'
 
 
@@ -52,15 +54,17 @@ export default function Header() {
               </Text>
             </Box>
 
-            {
-              menuList.map(menu => {
-                return (
-                  <Button key={menu.path} onClick={() => handleRoute(menu)} variant={menu.path !== router.pathname ? "ghost" : "solid"}>
-                    {menu.title}
-                  </Button>
-                )
-              })
-            }
+            <Box display={{ base: "none", md: "block" }}>
+              {
+                menuList.map(menu => {
+                  return (
+                    <Button key={menu.path} onClick={() => handleRoute(menu)} variant={menu.path !== router.pathname ? "ghost" : "solid"}>
+                      {menu.title}
+                    </Button>
+                  )
+                })
+              }
+            </Box>
           </Flex>
 
           <Flex alignItems='center'>
@@ -69,38 +73,31 @@ export default function Header() {
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
 
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded='full'
-                  variant='link'
-                  cursor='pointer'
-                  minW={0}>
-                  <Avatar
-                    size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+              <Box display={{ base: "block", md: "none" }}>
+                <Menu>
+                  <MenuButton
+                    as={IconButton}
+                    aria-label='Options'
+                    icon={<HamburgerIcon />}
+                    variant='outline'
                   />
-                </MenuButton>
 
-                <MenuList alignItems='center'>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
-                </MenuList>
-              </Menu>
+                  <MenuList alignItems='center'>
+                    <MenuOptionGroup defaultValue={router.pathname} title='Menü' type='radio'>
+                      {
+                        menuList.map(menu => {
+                          return (
+                            <MenuItemOption key={menu.path} onClick={() => handleRoute(menu)} value={menu.path}>
+                              {menu.title}
+                            </MenuItemOption>
+                          )
+                        })
+                      }
+                    </MenuOptionGroup>
+
+                  </MenuList>
+                </Menu>
+              </Box>
             </Stack>
           </Flex>
         </Flex>
