@@ -49,7 +49,7 @@ export default function Header(props) {
 
   return (
     <>
-      <Box {...props} bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box {...props} bg={useColorModeValue('gray.100', 'gray.900')} px={4} boxShadow='lg'>
         <Flex h={16} alignItems='center' justifyContent='space-between'>
           <Flex alignItems='center' gap={3}>
             <Box>

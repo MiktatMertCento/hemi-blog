@@ -1,5 +1,5 @@
 import { Box, Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea, Button, Divider, FormControl } from '@chakra-ui/react'
-import { PhoneIcon, InfoOutlineIcon, EmailIcon, EditIcon } from '@chakra-ui/icons'
+import { PhoneIcon, InfoOutlineIcon, EmailIcon, EditIcon, InfoIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 import React from 'react'
 import Image from 'next/image'
@@ -13,27 +13,28 @@ export default function About(props) {
                 <title>Hakkında</title>
             </Head>
 
-            <Box>
-                <Grid h='100%' templateColumns='repeat(12, 1fr)' gap={4}>
+                <Flex my='5rem' justifyContent='center'>
                     <GridItem colSpan={{ base: 12, md: 6 }}>
                         <Title>Hakkımızda</Title>
                         <Text fontSize='1.2rem'>
                             {props.baconIpsum}
                         </Text>
-                    </GridItem>
+                    </GridItem>                    
+                </Flex>
 
-                    <GridItem colSpan={{ base: 12, md: 6 }}>
-                        <Grid mt="1rem">
-                            <GridItem>
+            <Flex><Divider mx='2rem' /> </Flex>
+
+                <Grid mt="5rem" justifyContent='center' alignItems='center' gap='1rem'>
+                            <GridItem w={['15rem', '30rem']}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none' >
-                                        <InfoOutlineIcon />
+                                        <InfoIcon />
                                     </InputLeftElement>
                                     <Input placeholder='İsminiz' type="text" />
                                 </InputGroup>
                             </GridItem>
 
-                            <GridItem mt="4">
+                            <GridItem w={['15rem', '30rem']}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none'>
                                         <EmailIcon />
@@ -42,7 +43,7 @@ export default function About(props) {
                                 </InputGroup>
                             </GridItem>
 
-                            <GridItem mt="4">
+                            <GridItem w={['15rem', '30rem']}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none'>
                                         <EditIcon />
@@ -51,21 +52,18 @@ export default function About(props) {
                                 </InputGroup>
                             </GridItem>
 
-                            <GridItem mt="3" justifySelf="end">
+                            <GridItem justifySelf="end">
                                 <Button type="submit">Gönder</Button>
                             </GridItem>
                         </Grid>
-                    </GridItem>
-                </Grid>
-            </Box>
         </>
     )
 }
 
 
 export async function getServerSideProps() {
-   // const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
-   // const baconIpsum = await res.json()
+    //const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
+    //const baconIpsum = await res.json()
 
-    return { props: { baconIpsum: "Burası hakkında kısmı" } }
+    return { props: { baconIpsum: 'baconIpsum[0]' } }
 }
