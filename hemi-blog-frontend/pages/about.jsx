@@ -24,8 +24,8 @@ export default function About(props) {
 
             <Flex><Divider mx='2rem' /> </Flex>
 
-                <Grid mt="5rem" justifyContent='center' alignItems='center' gap='1rem'>
-                            <GridItem w={['15rem', '30rem']}>
+                <Grid mt={5} justifyContent='center' alignItems='center' gap={4}>
+                            <GridItem w={[150, 500]}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none' >
                                         <InfoIcon />
@@ -34,7 +34,7 @@ export default function About(props) {
                                 </InputGroup>
                             </GridItem>
 
-                            <GridItem w={['15rem', '30rem']}>
+                            <GridItem w={[150, 500]}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none'>
                                         <EmailIcon />
@@ -43,7 +43,7 @@ export default function About(props) {
                                 </InputGroup>
                             </GridItem>
 
-                            <GridItem w={['15rem', '30rem']}>
+                            <GridItem w={[150, 500]}>
                                 <InputGroup>
                                     <InputLeftElement pointerEvents='none'>
                                         <EditIcon />
