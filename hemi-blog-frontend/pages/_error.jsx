@@ -3,12 +3,12 @@ import Image from "next/image"
 function Error({ statusCode }) {
   return (
     <>
-      <Image src={`https://http.cat/${statusCode}`} alt={`${statusCode}`} />
+      <Image src={`https://http.cat/${statusCode}`} alt={`${statusCode}`} layout='fill'/>
       <p>
         {statusCode
           ? `An error ${statusCode} occurred on server`
           : 'An error occurred on client'}
-      </p>
+    </p>
     </>
   )
 }

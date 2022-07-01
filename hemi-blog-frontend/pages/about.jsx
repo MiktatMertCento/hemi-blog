@@ -64,8 +64,8 @@ export default function About(props) {
 
 
 export async function getServerSideProps() {
-    const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
-    const baconIpsum = await res.json()
+   // const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
+   // const baconIpsum = await res.json()
 
-    return { props: { baconIpsum: baconIpsum[0] } }
+    return { props: { baconIpsum: "Burası hakkında kısmı" } }
 }
