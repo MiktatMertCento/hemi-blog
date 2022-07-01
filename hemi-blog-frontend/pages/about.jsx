@@ -6,7 +6,7 @@ import Image from 'next/image'
 import AboutStyle from '../styles/About.module.css'
 import Title from '../components/title'
 
-export default function about() {
+export default function About(props) {
     return (
         <>
             <Head>
@@ -17,7 +17,9 @@ export default function about() {
                 <Grid h='100%' templateColumns='repeat(12, 1fr)' gap={4}>
                     <GridItem colSpan={{ base: 12, md: 6 }}>
                         <Title>Hakkımızda</Title>
-                        <Text fontSize='1.2rem'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptate, asperiores optio quod inventore nulla sit deserunt eaque molestiae consequatur.</Text>
+                        <Text fontSize='1.2rem'>
+                            {props.baconIpsum}
+                        </Text>
                     </GridItem>
 
                     <GridItem colSpan={{ base: 12, md: 6 }}>
@@ -58,4 +60,12 @@ export default function about() {
             </Box>
         </>
     )
+}
+
+
+export async function getServerSideProps() {
+    const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
+    const baconIpsum = await res.json()
+
+    return { props: { baconIpsum: baconIpsum[0] } }
 }
