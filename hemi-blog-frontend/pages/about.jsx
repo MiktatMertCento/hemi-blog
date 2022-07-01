@@ -13,13 +13,13 @@ export default function About(props) {
                 <title>Hakkında</title>
             </Head>
 
-                <Flex my='5rem' justifyContent='center'>
-                    <GridItem colSpan={{ base: 12, md: 6 }}>
+                <Flex my={20} justifyContent='center'>
+                    <Box colSpan={{ base: 12, md: 6 }}>
                         <Title>Hakkımızda</Title>
                         <Text fontSize='1.2rem'>
                             {props.baconIpsum}
                         </Text>
-                    </GridItem>                    
+                    </Box>                    
                 </Flex>
 
             <Flex><Divider mx='2rem' /> </Flex>
