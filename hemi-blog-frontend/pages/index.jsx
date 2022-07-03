@@ -1,9 +1,9 @@
 import { Box, Flex, Grid, GridItem, Stack, Text } from '@chakra-ui/react'
 import Head from 'next/head'
-import Title from '../components/title'
-import homeStyles from '../styles/Home.module.css'
+import Post from '../components/post'
+import TitleComponent from '../components/title'
 
-export default function Home() {
+export default function HomePage() {
 
   const postList = [
     {
@@ -57,25 +57,25 @@ export default function Home() {
       </Head>
 
       <Box>
-        <Title>
+        <TitleComponent>
           Son Postlar
-        </Title>
+        </TitleComponent>
 
-        <Grid h='250px' templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4}>
-          <GridItem rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 5 }} bg='tomato'>
-            Post 1
+        <Grid h='300px' templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4}>
+          <GridItem rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 5 }}>
+            <Post postInfo={postList[0]} id={1} />
           </GridItem>
 
-          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 2 }} colSpan={{ base: 0, md: 4 }} bg='tomato'>
-            Post 2
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 2 }} colSpan={{ base: 0, md: 4 }} >
+            <Post postInfo={postList[1]} id={2} />
           </GridItem>
 
-          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }} bg='tomato'>
-            Post 3
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }}>
+            <Post postInfo={postList[2]} id={3} />
           </GridItem>
 
-          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }} bg='tomato'>
-            Post 4
+          <GridItem display={{ base: "none", md: "block" }} rowSpan={{ base: 0, md: 1 }} colSpan={{ base: 0, md: 3 }}>
+            <Post postInfo={postList[3]} id={4} />
           </GridItem>
         </Grid>
       </Box>

@@ -1,11 +1,9 @@
-import { Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
-export default function Footer(props) {
+export default function FooterComponent(props) {
     return (
-        <>
-            <Container {...props} mt={150}>
-
-            </Container>
-        </>
+        <Box {...props} >
+            
+        </Box>
     )
 }

@@ -6,7 +6,7 @@ import catImage from '../../assets/cat.jpg'
 import Head from 'next/head';
 import { LinkIcon } from '@chakra-ui/icons';
 
-export default function Post() {
+export default function PostDetailPage() {
     const router = useRouter();
     const { id } = router.query
 

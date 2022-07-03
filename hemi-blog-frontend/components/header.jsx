@@ -23,7 +23,7 @@ import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router'
 
 
-export default function Header(props) {
+export default function HeaderComponent(props) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
@@ -99,9 +99,7 @@ export default function Header(props) {
                 </Menu>
               </Box>
 
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
+              <IconButton icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} variant='outline' />
             </Stack>
           </Flex>
         </Flex>

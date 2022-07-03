@@ -1,69 +1,65 @@
-import { Box, Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea, Button, Divider, FormControl } from '@chakra-ui/react'
-import { PhoneIcon, InfoOutlineIcon, EmailIcon, EditIcon, InfoIcon } from '@chakra-ui/icons'
+import { Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea, Button, Divider, FormControl } from '@chakra-ui/react'
+import { EmailIcon, EditIcon, InfoIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 import React from 'react'
-import Image from 'next/image'
-import AboutStyle from '../styles/About.module.css'
-import Title from '../components/title'
+import TitleComponent from '../components/title'
 
-export default function About(props) {
+export default function AboutPage(props) {
     return (
         <>
             <Head>
                 <title>Hakkında</title>
             </Head>
 
-                <Flex my={20} justifyContent='center'>
-                    <Box colSpan={{ base: 12, md: 6 }}>
-                        <Title>Hakkımızda</Title>
-                        <Text fontSize='1.2rem'>
-                            {props.baconIpsum}
-                        </Text>
-                    </Box>                    
-                </Flex>
+            <TitleComponent>Hakkımızda</TitleComponent>
+            <Text fontSize='1rem'>
+                {props.baconIpsum}
+            </Text>
 
-            <Divider mx='2rem' />
+            <Divider mx={2} my={7} />
 
-                <Grid mt={5} justifyContent='center' alignItems='center' gap={4}>
-                            <GridItem w={[150, 500]}>
-                                <InputGroup>
-                                    <InputLeftElement pointerEvents='none' >
-                                        <InfoIcon />
-                                    </InputLeftElement>
-                                    <Input placeholder='İsminiz' type="text" />
-                                </InputGroup>
-                            </GridItem>
+            <Flex justifyContent="center" >
+                <Grid mt={5} gap={4} w={{ base: "100%", md: 400 }}>
+                    <GridItem>
+                        <InputGroup>
+                            <InputLeftElement pointerEvents='none' >
+                                <InfoIcon />
+                            </InputLeftElement>
+                            <Input placeholder='İsminiz' type="text" />
+                        </InputGroup>
+                    </GridItem>
 
-                            <GridItem w={[150, 500]}>
-                                <InputGroup>
-                                    <InputLeftElement pointerEvents='none'>
-                                        <EmailIcon />
-                                    </InputLeftElement>
-                                    <Input placeholder='E-Mailiniz' type="email" />
-                                </InputGroup>
-                            </GridItem>
+                    <GridItem>
+                        <InputGroup>
+                            <InputLeftElement pointerEvents='none'>
+                                <EmailIcon />
+                            </InputLeftElement>
+                            <Input placeholder='E-Mailiniz' type="email" />
+                        </InputGroup>
+                    </GridItem>
 
-                            <GridItem w={[150, 500]}>
-                                <InputGroup>
-                                    <InputLeftElement pointerEvents='none'>
-                                        <EditIcon />
-                                    </InputLeftElement>
-                                    <Textarea placeholder='Mesajınız' type="text" resize='none' paddingInlineEnd='1rem' paddingInlineStart='2.5rem' maxH='15rem' h='15rem' />
-                                </InputGroup>
-                            </GridItem>
+                    <GridItem>
+                        <InputGroup>
+                            <InputLeftElement pointerEvents='none'>
+                                <EditIcon />
+                            </InputLeftElement>
+                            <Textarea placeholder='Mesajınız' type="text" resize='none' paddingInlineEnd='1rem' paddingInlineStart='2.5rem' maxH='15rem' h='15rem' />
+                        </InputGroup>
+                    </GridItem>
 
-                <GridItem justifySelf="end">
-                    <Button type="submit">Gönder</Button>
-                </GridItem>
-            </Grid>
+                    <GridItem justifySelf="end">
+                        <Button type="submit">Gönder</Button>
+                    </GridItem>
+                </Grid>
+            </Flex>
         </>
     )
 }
 
 
 export async function getServerSideProps() {
-    //const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
-    //const baconIpsum = await res.json()
+    const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
+    const baconIpsum = await res.json()
 
-    return { props: { baconIpsum: 'baconIpsum[0]' } }
+    return { props: { baconIpsum: baconIpsum[0] } }
 }
