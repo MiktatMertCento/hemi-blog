@@ -11,7 +11,7 @@ export default function PostsPage() {
       subtitle: "Bildiğiniz üzere uzun zamandır üzerinde çalışılan ve testleri yapılan android subsystem desteği çok yakında Windows 11 xxx sürümünde sizlere ilk stable sürümü ile kavuşacak."
     },
     {
-      title: "Post 111",
+      title: "Post 1",
       subtitle: "Açıklama 11"
     },
     {
