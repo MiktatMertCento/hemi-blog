@@ -56,43 +56,15 @@ export default function PostDetailPage() {
 
                         <Box>
                             <Text>
-                                Hikayemin ilk bölümünde şimdilik teknik detaylara (vize süreci, iş bulma, CV hazırlama vs. gibi) girmeden bu kararı almamın altında yatan başlıca sebepleri kendimce açıklamaya ve kendimi tanıtmaya çalışacağım.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae augue ut urna faucibus elementum. Nam lacinia accumsan risus et sodales. Sed feugiat est non sodales facilisis. Praesent tempus leo id purus scelerisque, a faucibus lectus hendrerit. Nullam maximus auctor augue ac molestie. Fusce dolor mi, lobortis ac felis feugiat, aliquam posuere metus. Aliquam et dignissim lorem. Donec elementum placerat eros sed auctor. Ut nisl magna, tempor sed tristique ac, convallis non ante. Sed finibus viverra accumsan. Integer enim augue, efficitur quis malesuada eu, tincidunt vitae tellus. Donec malesuada molestie ipsum. Etiam dignissim nulla porta ex facilisis eleifend. Duis sed ex volutpat, hendrerit leo non, convallis tellus. Curabitur suscipit tortor vitae sapien congue venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
+                                Maecenas ut velit quis arcu faucibus varius. Morbi faucibus justo et urna efficitur, eget aliquet enim posuere. Fusce tristique mollis ante tincidunt suscipit. Donec id elit orci. Nulla id nibh mattis, auctor neque ac, tristique nisi. Morbi tempus arcu vitae elit consequat ornare. Pellentesque cursus orci convallis diam vehicula, et imperdiet lacus varius. Integer egestas, eros non fringilla elementum, diam nulla vehicula nulla, sed congue quam tortor sed ante. Nulla viverra libero sit amet velit mattis imperdiet. Maecenas purus est, semper ut augue nec, sagittis laoreet felis.
 
-                                Hakkımda
-                                Beni tanımayanlar için kısaca kendimi tanıtayım. Ben Onur Şuyalçınkaya. 1992'de Ankara’da doğdum. Emekli bir albay baba ve emekli bir öğretmen annenin evladı, yüksek mühendis bir abinin kardeşiyim.
+                                Sed et nisl at nibh molestie rutrum non ac dolor. Curabitur vitae massa leo. Nam vitae scelerisque justo, quis molestie mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas arcu accumsan ultricies hendrerit. Nulla ac aliquam arcu. Maecenas a ornare dui.
 
-                                Liseyi Nişantaşı Nuri Akin Anadolu Lisesi’nde okudum. Lisansımı da Doğuş Üniversitesi’nde tam burslu Bilgisayar Mühendisliği okuyarak tamamladım. Yüksek Lisans’ımı da Bahçeşehir Üniversitesi’nde yine Bilgisayar Mühendisliği üzerine yapıyordum. “Dum” çünkü bıraktım. Aslında ortalamam da fena değildi, 3.32. Tüm derslerimi de başarıyla vermiştim ama tez yazmanın bana göre olmadığını anladığımda bırakma kararı aldım.
+                                Suspendisse semper lacus metus, at eleifend urna gravida nec. Pellentesque vel diam eu diam maximus faucibus et non dui. Quisque a diam tempor, porta mi id, aliquet libero. Vivamus pellentesque nunc erat, et tempus lacus mollis in. Donec feugiat vehicula sollicitudin. Duis vitae est tortor. Sed in efficitur diam. Nulla magna turpis, aliquet sollicitudin lacinia quis, accumsan sit amet dolor. Nullam at eros gravida, tempor leo eget, tincidunt turpis. Duis sollicitudin, mi ut consectetur blandit, dui lorem fermentum tortor, vitae bibendum nisi arcu sit amet libero. Vestibulum ullamcorper, sem faucibus tincidunt vestibulum, nunc nisi lobortis mi, sit amet sollicitudin urna risus commodo elit. Nulla aliquam hendrerit scelerisque. Fusce viverra blandit metus, quis pellentesque erat viverra quis. Sed quis elementum ipsum. Morbi id dictum mi, ut dictum tortor.
 
-                                İş hayatımda ise Apple’da (Akasya’daki) Specialist, Sistaş’ta Full Stack Developer, Yemeksepeti’nde Frontend Engineer olarak çalıştım ve şu an heycar’da Frontend Engineer olarak çalışmaktayım.
-
-                                Neden?
-                                Tek bir sebebi yok benim için. Farklı zamanlarda gelişen olaylar ile tetiklendi diyebilirim.
-
-                                2015
-                                Yurt dışında yaşama isteği, ilk defa yurt dışına çıktığım 2015 senesinde başladı. 5 sene içinde 8 ülke 12 şehir gezdim, gördüm. Güzel binaların, mutlu insanların, yakışıklı yapıların, şaşaalı hikayelerin olduğu yerler hep cezbetmiştir beni. İşte bu sebeple 2015'ten beri ufak da olsa döviz biriktirmeye başladım. 2015'teki ortalama dolar kuru 2.7, euro kuru ise 2.86'ymış :)
-
-                                Yazılımcı olarak çalıştığım ilk yıllarda, tabiri caizse “Junior” olduğum zamanlar birkaç hüsran dolu yurt dışı iş görüşmesi tecrübem olmuştu. E insanın hevesi kırılıyor haliyle ve bir daha denemeye cesaret edemiyor. En azından benim için öyle oldu. Olay dil seviyesi de değil oysa ki, tamamen “Junior” olmamla alakalı. Ben de “Henüz zamanı değil demek ki” diyerek rafa kaldırmıştım bu olayı. Aklımın bir köşesinde bir gün başaracağım umuduyla…
-
-                                1/3
-                                Şöyle bir bakış açım var: Ortalama 70 yıl yaşasam (umarım); ilk 1/3’ü çocuklukla, büyümekle, eğitimle, onla bunla geçti gitti. Yeterli enerjim kalmayacağı için sondaki 1/3’e de yaşamak denemez benim için. E bari o ortadaki 1/3’lük bölümde huzurlu olacağım, televizyonu Twitter’ı açtığımda saçma sapan bir gündem görmeyeceğim bir şekilde yaşayayım.
-
-                                2020
-                                Tarihler Ocak 2020, corona öncesi tabi. Müdürümüz şirketin bir odasında toplamış bizi, bir açıklama yapacak. Herkes merakla bekliyor. Lafı uzatmayı pek sevmiyorum deyip, pat diye “Ben iş teklifi aldım Berlin’e taşınıyorum” dedi. Herkes şok. Hem onun adına çok mutlu oluyorum hem de derin düşüncelere dalıyorum. “Ben gitsem nasıl olurdu acaba?” diye.
-
-                                1 ay sonra Şubat’ta aldığım zam beni memnun etmeyince dedim ki şansımı deneyeyim, ne kaybederim. Başladım iş başvurularına. 2 hafta içerisinde yaklaşık 200–300 ilana başvurdum ve bu süreçte 20–30 şirketle görüştüm. 2 adet iş teklifi alıp, bana en mantıklı geleni kabul ettim ve bu zor corona günlerinde buraya gelmeyi başardım. İlgilenenler için bu serinin sonrakı bölümlerinde detaylıca değineceğim bu konuya.
-
-                                İngilizce
-                                Bunu sebep olarak değil de teşvik edici bir unsur olarak belirtmem daha doğru olur sanırım. Mesleğiniz evrensel ise (mühendis, mimar, doktor, vs. gibi) ve yabancı diliniz de varsa yurt dışında yaşamak için hiçbir engeliniz yok. Hem mesleğim hem de yabancı dilim yeterli olduğu için bu kesimdenim ben de.
-
-
-                                https://www.youtube.com/watch?v=MejA5zBQdG0
-                                Nereden öğrendiğime gelecek olursak; ilginç ama İngilizce’yi nereden öğrendiğimi asla hatırlamiyorum. Babam albay demiştim, sınıfı da öğretmen. Yani hem İngilizce öğretmeni hem albay. Ama bana verdiği ders sayısı bir elin parmaklarını geçmemiştir. Hayatımda hiç İngilizce dersi alma ihtiyacı da hissetmedim açıkçası. Kulağa biraz garip gelebilir ama tahminim 2000 senesinden beri aralıksız olarak her sene satin alıp oynadığım “Football Manager” serisi. Oyun full diyaloglarla dolu. Dolayısıyla çocuk yaşımda translate kullana kullana oyunu çözdüğümü ve bu şekilde İngilizce’mi ilerlettiğimi tahmin ediyorum.
-
-                                Gelecek Kaygısı
-                                Gelelim asıl probleme. Buyrun size üzücü bir istatistik:
-
-                                TÜİK verilerine göre 2019’da 330.289 kişi Türkiye’yi terk etti. Türkiye’yi terk eden her 5 kişiden 2'si 20–34 yaş aralığında. Ve yine veriler gösteriyor ki, gidenlerin büyük bölümü eğitimli-kentli kesim.
+                                Proin tincidunt augue ut nisi aliquam, at scelerisque lorem posuere. Suspendisse non pretium leo, eget vestibulum dui. Duis venenatis elit id dui tincidunt tempus. Nullam efficitur, velit quis imperdiet porttitor, diam metus interdum justo, eget vehicula ipsum tellus at elit. Suspendisse potenti. Etiam et consectetur ipsum. Pellentesque at lorem a elit dapibus tempus ac et arcu. Integer a pretium quam, a finibus augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent sit amet turpis tellus. Curabitur fringilla dolor risus, eu pharetra ante lobortis quis.
                             </Text>
                         </Box>
                     </Box>
