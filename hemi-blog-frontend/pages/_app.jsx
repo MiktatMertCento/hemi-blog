@@ -1,4 +1,4 @@
-import { Box, ChakraProvider, Container, Flex } from '@chakra-ui/react'
+import { Box, ChakraProvider, Flex } from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import '../styles/globals.css'
