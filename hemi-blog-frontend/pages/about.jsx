@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea, Button, Divider, FormControl } from '@chakra-ui/react'
+import { Flex, Grid, GridItem, Text, Input, InputGroup, InputLeftElement, Textarea, Button, Divider, FormControl, Box } from '@chakra-ui/react'
 import { EmailIcon, EditIcon, InfoIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 import React from 'react'
@@ -16,7 +16,10 @@ export default function AboutPage(props) {
                 {props.baconIpsum}
             </Text>
 
-            <Divider mx={2} my={7} />
+            <Box mx={1} my={7}>
+                <Divider />
+            </Box>
+
 
             <Flex justifyContent="center" >
                 <Grid mt={5} gap={4} w={{ base: "100%", md: 400 }}>
