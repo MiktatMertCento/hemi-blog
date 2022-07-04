@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
 import { Avatar, Box, Divider, Flex, Grid, GridItem, Heading, IconButton, Spacer, Text } from '@chakra-ui/react';
 import catImage from '../../assets/cat.jpg'
 import Head from 'next/head';
 import { LinkIcon, SettingsIcon } from '@chakra-ui/icons';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
 
-export default function PostDetailPage() {
+
+export default function PostDetailPage({ data }) {
     const router = useRouter();
     const { id } = router.query
+
+    useEffect(() => {
+        console.log(data)
+    }, [data])
+
 
     return (
         <>
@@ -18,7 +27,7 @@ export default function PostDetailPage() {
 
             <Grid templateColumns='repeat(12, 1fr)'>
                 <GridItem display={{ base: "none", md: "block" }} colSpan={{ base: 0, md: 2 }}>
-                    Sol Menü
+
                 </GridItem>
 
                 <GridItem overflowY="hidden" mt={{ base: 10, md: 0 }} padding={{ base: 0, md: 10 }} colSpan={{ base: 12, md: 7 }} >
@@ -55,28 +64,28 @@ export default function PostDetailPage() {
                         </Text>
 
                         <Box>
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae augue ut urna faucibus elementum. Nam lacinia accumsan risus et sodales. Sed feugiat est non sodales facilisis. Praesent tempus leo id purus scelerisque, a faucibus lectus hendrerit. Nullam maximus auctor augue ac molestie. Fusce dolor mi, lobortis ac felis feugiat, aliquam posuere metus. Aliquam et dignissim lorem. Donec elementum placerat eros sed auctor. Ut nisl magna, tempor sed tristique ac, convallis non ante. Sed finibus viverra accumsan. Integer enim augue, efficitur quis malesuada eu, tincidunt vitae tellus. Donec malesuada molestie ipsum. Etiam dignissim nulla porta ex facilisis eleifend. Duis sed ex volutpat, hendrerit leo non, convallis tellus. Curabitur suscipit tortor vitae sapien congue venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                                Maecenas ut velit quis arcu faucibus varius. Morbi faucibus justo et urna efficitur, eget aliquet enim posuere. Fusce tristique mollis ante tincidunt suscipit. Donec id elit orci. Nulla id nibh mattis, auctor neque ac, tristique nisi. Morbi tempus arcu vitae elit consequat ornare. Pellentesque cursus orci convallis diam vehicula, et imperdiet lacus varius. Integer egestas, eros non fringilla elementum, diam nulla vehicula nulla, sed congue quam tortor sed ante. Nulla viverra libero sit amet velit mattis imperdiet. Maecenas purus est, semper ut augue nec, sagittis laoreet felis.
-
-                                Sed et nisl at nibh molestie rutrum non ac dolor. Curabitur vitae massa leo. Nam vitae scelerisque justo, quis molestie mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris egestas arcu accumsan ultricies hendrerit. Nulla ac aliquam arcu. Maecenas a ornare dui.
-
-                                Suspendisse semper lacus metus, at eleifend urna gravida nec. Pellentesque vel diam eu diam maximus faucibus et non dui. Quisque a diam tempor, porta mi id, aliquet libero. Vivamus pellentesque nunc erat, et tempus lacus mollis in. Donec feugiat vehicula sollicitudin. Duis vitae est tortor. Sed in efficitur diam. Nulla magna turpis, aliquet sollicitudin lacinia quis, accumsan sit amet dolor. Nullam at eros gravida, tempor leo eget, tincidunt turpis. Duis sollicitudin, mi ut consectetur blandit, dui lorem fermentum tortor, vitae bibendum nisi arcu sit amet libero. Vestibulum ullamcorper, sem faucibus tincidunt vestibulum, nunc nisi lobortis mi, sit amet sollicitudin urna risus commodo elit. Nulla aliquam hendrerit scelerisque. Fusce viverra blandit metus, quis pellentesque erat viverra quis. Sed quis elementum ipsum. Morbi id dictum mi, ut dictum tortor.
-
-                                Proin tincidunt augue ut nisi aliquam, at scelerisque lorem posuere. Suspendisse non pretium leo, eget vestibulum dui. Duis venenatis elit id dui tincidunt tempus. Nullam efficitur, velit quis imperdiet porttitor, diam metus interdum justo, eget vehicula ipsum tellus at elit. Suspendisse potenti. Etiam et consectetur ipsum. Pellentesque at lorem a elit dapibus tempus ac et arcu. Integer a pretium quam, a finibus augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent sit amet turpis tellus. Curabitur fringilla dolor risus, eu pharetra ante lobortis quis.
-                            </Text>
+                            <ReactMarkdown components={ChakraUIRenderer()} skipHtml >
+                                {data}
+                            </ReactMarkdown>
                         </Box>
                     </Box>
 
                 </GridItem>
 
                 <GridItem display={{ base: "none", md: "block" }} colSpan={{ base: 0, md: 3 }}>
-                    Sağ Menü
+
                 </GridItem>
             </Grid>
 
 
         </>
     )
+}
+
+export async function getServerSideProps() {
+    // Fetch data from external API
+    const res = await axios.get("https://miktatcento.org/test")
+
+    // Pass data to the page via props
+    return { props: { data: res.data } }
 }
