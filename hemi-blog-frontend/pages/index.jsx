@@ -61,7 +61,7 @@ export default function HomePage() {
           Son Postlar
         </TitleComponent>
 
-        <Grid h='300px' templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4}>
+        <Grid h='300px' templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4} mb={10}>
           <GridItem rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 5 }}>
             <Post postInfo={postList[0]} id={1} />
           </GridItem>

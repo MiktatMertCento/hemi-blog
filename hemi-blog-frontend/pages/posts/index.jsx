@@ -61,7 +61,7 @@ export default function PostsPage() {
           Tüm Postlar
         </TitleComponent>
 
-        <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4}>
+        <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4} pb="10">
           <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 4 }}>
             <PostComponent postInfo={postList[0]} id={1} />
           </GridItem>
