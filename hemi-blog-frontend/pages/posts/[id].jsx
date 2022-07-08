@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
-import { Avatar, Box, Flex, Grid, GridItem, Heading, IconButton, Text } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Grid, GridItem, Heading, IconButton, Text, useColorMode } from '@chakra-ui/react';
 import Head from 'next/head';
 import { LinkIcon, SettingsIcon } from '@chakra-ui/icons';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import("highlight.js/styles/solarized-dark.css");
 
 export default function PostDetailPage(props) {
     const router = useRouter();
     const { id } = router.query
+    
+    /*const { colorMode } = useColorMode();
+    const [style, setStyle] = useState(colorMode);
+    useEffect(() => {
+        if (style === "dark") {
+            import("highlight.js/styles/atom-one-dark.css");
+            setStyle('dark');
+        } else {
+            import("highlight.js/styles/atom-one-light.css");
+            setStyle('light');
+        }
+    }, [style])*/
+
 
     return (
         <>
@@ -58,7 +74,7 @@ export default function PostDetailPage(props) {
                         </Text>
 
                         <Box>
-                            <ReactMarkdown components={ChakraUIRenderer()} rehypePlugins={[rehypeRaw]} skipHtml>
+                            <ReactMarkdown components={ChakraUIRenderer()} rehypePlugins={[rehypeRaw, remarkGfm, rehypeHighlight]} skipHtml>
                                 {props.article.articleContent}
                             </ReactMarkdown>
                         </Box>
