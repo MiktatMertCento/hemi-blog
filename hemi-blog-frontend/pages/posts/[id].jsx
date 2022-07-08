@@ -16,7 +16,7 @@ export default function PostDetailPage(props) {
     return (
         <>
             <Head>
-                <title>{id}</title>
+                <title>Miktat Cento - {props.article.articleTitle}</title>
             </Head>
 
             <Grid templateColumns='repeat(12, 1fr)'>
