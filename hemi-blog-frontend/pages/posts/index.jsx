@@ -33,7 +33,7 @@ export default function PostsPage({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const res = await axios.get("http://localhost:3148/articles", {
+  const res = await axios.get("https://BlogBackend.miktatcento.repl.co/articles", {
     data: {  }
   })
 

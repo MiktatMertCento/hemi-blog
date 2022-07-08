@@ -78,7 +78,7 @@ export default function PostDetailPage(props) {
 
 export async function getServerSideProps({ res, query }) {
     try {
-        const response = await axios.get("http://localhost:3148/articles", {
+        const response = await axios.get("https://BlogBackend.miktatcento.repl.co/articles", {
             data: { id: query.id }
         })
 
