@@ -62,23 +62,23 @@ export default function PostsPage() {
         </TitleComponent>
 
         <Grid templateRows='repeat(2, 1fr)' templateColumns='repeat(12, 1fr)' gap={4} pb="10">
-          <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 12, md: 4, '2xl': 3 }}>
+          <GridItem h="15rem" rowSpan={2} colSpan={{ base: 12, md: 4, '2xl': 3 }}>
             <PostComponent postInfo={postList[0]} id={1} />
           </GridItem>
 
-          <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
+          <GridItem h="15rem" rowSpan={2} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
             <PostComponent postInfo={postList[1]} id={2} />
           </GridItem>
 
-          <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
+          <GridItem h="15rem" rowSpan={2} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
             <PostComponent postInfo={postList[2]} id={3} />
           </GridItem>
 
-          <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
+          <GridItem h="15rem" rowSpan={2} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
             <PostComponent postInfo={postList[3]} id={4} />
           </GridItem>
 
-          <GridItem h="15rem" rowSpan={{ base: 2, md: 2 }} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
+          <GridItem h="15rem" rowSpan={2} colSpan={{ base: 6, md: 4, '2xl': 3 }}>
             <PostComponent postInfo={postList[4]} id={5} />
           </GridItem>
         </Grid>

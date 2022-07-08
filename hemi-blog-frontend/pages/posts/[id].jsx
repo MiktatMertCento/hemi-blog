@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
-import { Avatar, Box, Divider, Flex, Grid, GridItem, Heading, IconButton, Spacer, Text } from '@chakra-ui/react';
-import catImage from '../../assets/cat.jpg'
+import { Avatar, Box, Flex, Grid, GridItem, Heading, IconButton, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import { LinkIcon, SettingsIcon } from '@chakra-ui/icons';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
+import rehypeRaw from "rehype-raw";
 
-
-export default function PostDetailPage({ data }) {
+export default function PostDetailPage(props) {
     const router = useRouter();
     const { id } = router.query
-
-    useEffect(() => {
-        console.log(data)
-    }, [data])
-
 
     return (
         <>
@@ -36,7 +30,7 @@ export default function PostDetailPage({ data }) {
                         <Flex flexDir="column" gap={2} w="100%">
                             <Flex justifyContent="space-between" alignItems="center">
                                 <Heading fontSize='2rem'>
-                                    Miktat Cento {id}
+                                    Miktat Cento
                                 </Heading>
 
                                 <Flex gap={1} display={{ base: "none", md: "block" }}>
@@ -60,12 +54,12 @@ export default function PostDetailPage({ data }) {
 
                     <Box>
                         <Text my={4} fontWeight="bold" lineHeight="1.2" fontSize='3xl'>
-                            Bir Yazılımcı Olarak Türkiye’den Gitmek (Bölüm 1: Nedenler)
+                            {props.article.articleTitle}
                         </Text>
 
                         <Box>
-                            <ReactMarkdown components={ChakraUIRenderer()} skipHtml >
-                                {data}
+                            <ReactMarkdown components={ChakraUIRenderer()} rehypePlugins={[rehypeRaw]} skipHtml>
+                                {props.article.articleContent}
                             </ReactMarkdown>
                         </Box>
                     </Box>
@@ -82,10 +76,10 @@ export default function PostDetailPage({ data }) {
     )
 }
 
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await axios.get("https://miktatcento.org/test")
+export async function getServerSideProps({ query }) {
+    const res = await axios.get("http://localhost:3148/articles", {
+        data: { id: query.id }
+    })
 
-    // Pass data to the page via props
-    return { props: { data: res.data } }
+    return { props: { article: res.data.articles[0] } }
 }
