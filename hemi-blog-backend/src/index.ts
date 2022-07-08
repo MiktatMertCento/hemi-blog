@@ -37,7 +37,7 @@ app.get('/articles', async (req, res) => {
     const article = await articles
       .find(query)
       .limit(limit ?? 0)
-      //.sort({"createdDate": 1})
+      .sort({"createdDate": -1})
       .toArray()
 
     res.status(200).send({ status: true, articles: article })

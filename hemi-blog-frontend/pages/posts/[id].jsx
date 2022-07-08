@@ -76,10 +76,16 @@ export default function PostDetailPage(props) {
     )
 }
 
-export async function getServerSideProps({ query }) {
-    const res = await axios.get("http://localhost:3148/articles", {
-        data: { id: query.id }
-    })
+export async function getServerSideProps({ res, query }) {
+    try {
+        const response = await axios.get("http://localhost:3148/articles", {
+            data: { id: query.id }
+        })
 
-    return { props: { article: res.data.articles[0] } }
+        return { props: { article: response.data.articles[0] } }
+    } catch (err) {
+        return {
+            notFound: true
+        };
+    }
 }

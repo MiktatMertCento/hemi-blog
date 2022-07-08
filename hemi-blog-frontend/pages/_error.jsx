@@ -1,17 +1,30 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Grid, Text } from "@chakra-ui/react"
+import Head from "next/head"
 import Image from "next/image"
+import TitleComponent from "../components/title"
 
 function Error({ statusCode }) {
   return (
     <>
-      <Box pos="relative" w="30rem" h="30rem" borderRadius="15px" overflow="clip">
-        <Image src={`https://http.cat/${statusCode}`} alt={statusCode} layout="fill" objectFit="contain" />
-      </Box>
-      <p>
-        {statusCode
-          ? `An error ${statusCode} occurred on server`
-          : 'An error occurred on client'}
-      </p>
+      <Head>
+        <title>Kedi {statusCode} gördü.</title>
+      </Head>
+
+
+      <Grid placeItems="center">
+        <Box pos="relative" w="430px" h="430px" overflow="clip">
+          {
+            statusCode && <Image src={`https://http.cat/${statusCode}`} alt={statusCode} layout="fill" objectFit="contain" />
+          }
+        </Box>
+        <TitleComponent>
+          {
+            statusCode
+              ? `Kedi ${statusCode} gördü.`
+              : 'An error occurred on client'
+          }
+        </TitleComponent>
+      </Grid>
     </>
   )
 }
