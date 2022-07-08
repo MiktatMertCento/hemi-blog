@@ -26,7 +26,7 @@ export default function PostDetailPage(props) {
 
                 <GridItem overflowY="hidden" padding={{ base: 0, md: 10 }} colSpan={{ base: 12, md: 7 }} >
                     <Flex gap={4}>
-                        <Avatar name='Miktat Cento' border="1px" src='https://i.pinimg.com/564x/2a/5b/be/2a5bbebb7bfee3740822b332f7151ebb.jpg' size='lg' />
+                        <Avatar name='Miktat Cento' border="1px" src='https://avatars.githubusercontent.com/u/59205839?v=4' size='lg' />
                         <Flex flexDir="column" gap={2} w="100%">
                             <Flex justifyContent="space-between" alignItems="center">
                                 <Heading fontSize='2rem'>
