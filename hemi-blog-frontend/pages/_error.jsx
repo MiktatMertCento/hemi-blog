@@ -7,7 +7,7 @@ function Error({ statusCode }) {
   return (
     <>
       <Head>
-        <title>Kedi {statusCode} gördü.</title>
+        <title>{`Kedi ${statusCode} gördü.`}</title>
       </Head>
 
 
