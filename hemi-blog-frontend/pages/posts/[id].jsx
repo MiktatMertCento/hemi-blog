@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image';
-import { Avatar, Box, Flex, Grid, GridItem, Heading, IconButton, Text, useColorMode } from '@chakra-ui/react';
+import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Avatar, Box, Button, Flex, Grid, GridItem, Heading, IconButton, Text, useColorMode, useDisclosure } from '@chakra-ui/react';
 import Head from 'next/head';
 import { LinkIcon, SettingsIcon } from '@chakra-ui/icons';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
@@ -15,7 +15,7 @@ import("highlight.js/styles/solarized-dark.css");
 export default function PostDetailPage(props) {
     const router = useRouter();
     const { id } = router.query
-    
+
     /*const { colorMode } = useColorMode();
     const [style, setStyle] = useState(colorMode);
     useEffect(() => {
@@ -28,6 +28,7 @@ export default function PostDetailPage(props) {
         }
     }, [style])*/
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
         <>
@@ -50,7 +51,19 @@ export default function PostDetailPage(props) {
                                 </Heading>
 
                                 <Flex gap={1} display={{ base: "none", md: "block" }}>
-                                    <IconButton icon={<SettingsIcon />} variant="ghost" />
+                                    <IconButton icon={<SettingsIcon />} onClick={() => {
+                                        const shareData = {
+                                            title: `Miktat Cento -  ${props.article.articleTitle}`,
+                                            text: "Seninle paylaşılan bu içeriği okumak için hemen gel!",
+                                            url: `https://hemi-blog.vercel.app/posts/${id}`
+                                        }
+                                        if (navigator.canShare(shareData)) {
+                                            navigator.share(shareData)
+                                        } else {
+                                            
+                                            //onOpen();
+                                        }
+                                    }} variant="ghost" />
                                     <IconButton icon={<LinkIcon />} variant="ghost" />
                                 </Flex>
                             </Flex>
@@ -86,8 +99,6 @@ export default function PostDetailPage(props) {
 
                 </GridItem>
             </Grid>
-
-
         </>
     )
 }
