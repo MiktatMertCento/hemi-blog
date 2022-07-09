@@ -28,8 +28,18 @@ export default function PostDetailPage(props) {
         }
     }, [style])*/
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
-
+    const handleShare = e => {
+        const shareData = {
+            title: `Miktat Cento -  ${props.article.articleTitle}`,
+            text: "Seninle paylaşılan bu içeriği okumak için hemen gel!",
+            url: `https://hemi-blog.vercel.app/posts/${id}`
+        }
+        if (navigator.canShare(shareData)) {
+            navigator.share(shareData)
+        } else {
+            //onOpen();
+        }
+    }
     return (
         <>
             <Head>
@@ -51,19 +61,7 @@ export default function PostDetailPage(props) {
                                 </Heading>
 
                                 <Flex gap={1} display={{ base: "none", md: "block" }}>
-                                    <IconButton icon={<SettingsIcon />} onClick={() => {
-                                        const shareData = {
-                                            title: `Miktat Cento -  ${props.article.articleTitle}`,
-                                            text: "Seninle paylaşılan bu içeriği okumak için hemen gel!",
-                                            url: `https://hemi-blog.vercel.app/posts/${id}`
-                                        }
-                                        if (navigator.canShare(shareData)) {
-                                            navigator.share(shareData)
-                                        } else {
-                                            
-                                            //onOpen();
-                                        }
-                                    }} variant="ghost" />
+                                    <IconButton icon={<SettingsIcon />} onClick={handleShare} variant="ghost" />
                                     <IconButton icon={<LinkIcon />} variant="ghost" />
                                 </Flex>
                             </Flex>
@@ -75,7 +73,7 @@ export default function PostDetailPage(props) {
                             </Flex>
 
                             <Flex gap={2} display={{ base: "flex", md: "none" }}>
-                                <IconButton icon={<SettingsIcon />} variant="outline" />
+                                <IconButton icon={<SettingsIcon />} onClick={handleShare} variant="outline" />
                                 <IconButton icon={<LinkIcon />} variant="outline" />
                             </Flex>
                         </Flex>
