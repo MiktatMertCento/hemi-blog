@@ -11,6 +11,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import("highlight.js/styles/solarized-dark.css");
+import { CgShare } from "react-icons/cg"
 
 export default function PostDetailPage(props) {
     const router = useRouter();
@@ -40,6 +41,10 @@ export default function PostDetailPage(props) {
             //onOpen();
         }
     }
+
+    const handleCopy = e => {
+        navigator.clipboard.writeText(`https://hemi-blog.vercel.app/posts/${id}`)
+    }
     return (
         <>
             <Head>
@@ -61,8 +66,8 @@ export default function PostDetailPage(props) {
                                 </Heading>
 
                                 <Flex gap={1} display={{ base: "none", md: "block" }}>
-                                    <IconButton icon={<SettingsIcon />} onClick={handleShare} variant="ghost" />
-                                    <IconButton icon={<LinkIcon />} variant="ghost" />
+                                    <IconButton icon={<CgShare />} onClick={handleShare} variant="ghost" />
+                                    <IconButton icon={<LinkIcon />} onClick={handleCopy} variant="ghost" />
                                 </Flex>
                             </Flex>
 
@@ -73,8 +78,8 @@ export default function PostDetailPage(props) {
                             </Flex>
 
                             <Flex gap={2} display={{ base: "flex", md: "none" }}>
-                                <IconButton icon={<SettingsIcon />} onClick={handleShare} variant="outline" />
-                                <IconButton icon={<LinkIcon />} variant="outline" />
+                                <IconButton icon={<CgShare />} onClick={handleShare} variant="outline" />
+                                <IconButton icon={<LinkIcon />} onClick={handleCopy} variant="outline" />
                             </Flex>
                         </Flex>
                     </Flex>
