@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
       <Flex>
         <Footer w="100%" />
       </Flex>
-
+    
     </ChakraProvider>
   )
 }
