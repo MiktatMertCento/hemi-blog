@@ -12,7 +12,7 @@ function Error({ statusCode }) {
 
 
       <Grid placeItems="center">
-        <Box pos="relative" w="430px" h="430px" overflow="clip">
+        <Box pos="relative" w={{ base: "90%", md: "100%" }} h="300px" mt={{ base: 5, md: 10 }} overflow="clip">
           {
             statusCode && <Image src={`https://http.cat/${statusCode}`} alt={statusCode} layout="fill" objectFit="contain" />
           }

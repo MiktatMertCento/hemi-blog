@@ -2,13 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import { MongoClient, ObjectId } from 'mongodb'
-import Article, { convertMongoToTS } from './models/article'
 
 const app = express()
 const port = 3148
 var corsOptions = {
   origin: ['http://localhost:3000'],
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200,
 }
 
 app.use(cors(corsOptions))
@@ -37,13 +36,61 @@ app.get('/articles', async (req, res) => {
     const article = await articles
       .find(query)
       .limit(limit ?? 0)
-      .sort({"createdDate": -1})
+      .sort({ createdDate: -1 })
       .toArray()
 
     res.status(200).send({ status: true, articles: article })
   } catch (err) {
     res.status(404).send({
       status: false,
+    })
+  }
+})
+
+app.post('/contact', async (req, res) => {
+  try {
+    const { name, email, message } = req.body
+    //await client.connect()
+    //const database = client.db('blog')
+    //const contact = database.collection('contact')
+
+    if (!name) {
+      res.status(400).send({
+        status: false,
+        message: 'İsim Girilmedi',
+      })
+      return
+    }
+    if (!email) {
+      res.status(400).send({
+        status: false,
+        message: 'E-Mail Girilmedi',
+      })
+      return
+    }
+    if (!message) {
+      res.status(400).send({
+        status: false,
+        message: 'Mesaj Girilmedi',
+      })
+      return
+    }
+
+
+    res.status(200).send({ status: true, message: 'Hepsi girildi' })
+
+    /*
+    const article = await articles
+      .find(query)
+      .limit(limit ?? 0)
+      .sort({"createdDate": -1})
+      .toArray()
+
+    res.status(200).send({ status: true, articles: article })*/
+  } catch (err) {
+    res.status(404).send({
+      status: false,
+      err: err,
     })
   }
 })
