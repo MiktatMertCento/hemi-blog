@@ -3,6 +3,8 @@ import { EmailIcon, EditIcon, InfoIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 import React from 'react'
 import TitleComponent from '../components/title'
+import axios from 'axios'
+import Image from 'next/image'
 
 export default function AboutPage(props) {
     return (
@@ -13,7 +15,7 @@ export default function AboutPage(props) {
 
             <TitleComponent>Hakkımızda</TitleComponent>
             <Text fontSize='1rem'>
-                {props.baconIpsum}
+                {props.images}
             </Text>
 
             <Box mx={1} my={7}>
@@ -61,8 +63,19 @@ export default function AboutPage(props) {
 
 
 export async function getServerSideProps() {
-   // const res = await fetch(`https://baconipsum.com/api/?type=meat-and-filler`)
-    //const baconIpsum = await res.json()
+    try {
+       /* await axios.options("https://bf.dallemini.ai/generate");
 
-    return { props: { baconIpsum: "baconIpsum[0]" } }
+        const dallEResponse = await axios.post("https://bf.dallemini.ai/generate", {
+            prompt: "avocado is won vote and new leader turkey"
+        })*/
+
+        return { props: { images: "dallEResponse.data.images" } }
+    } catch (err) {
+        console.log(err)
+        return { props: { baconIpsum: JSON.stringify(err) } }
+        /*return {
+            notFound: true
+        };*/
+    }
 }

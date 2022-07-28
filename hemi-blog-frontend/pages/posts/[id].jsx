@@ -17,7 +17,7 @@ export default function PostDetailPage(props) {
     const router = useRouter();
     const { id } = router.query
 
-    /*const { colorMode } = useColorMode();
+    const { colorMode } = useColorMode();
     const [style, setStyle] = useState(colorMode);
     useEffect(() => {
         if (style === "dark") {
@@ -27,7 +27,7 @@ export default function PostDetailPage(props) {
             import("highlight.js/styles/atom-one-light.css");
             setStyle('light');
         }
-    }, [style])*/
+    }, [style])
 
     const handleShare = e => {
         const shareData = {
@@ -45,6 +45,7 @@ export default function PostDetailPage(props) {
     const handleCopy = e => {
         navigator.clipboard.writeText(`https://hemi-blog.vercel.app/posts/${id}`)
     }
+
     return (
         <>
             <Head>
