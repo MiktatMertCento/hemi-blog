@@ -70,7 +70,7 @@ export async function getServerSideProps() {
             prompt: "avocado is won vote and new leader turkey"
         })*/
 
-        return { props: { images: "dallEResponse.data.images" } }
+        return { props: { images: "Bu blog yapım aşamasındadır." } }
     } catch (err) {
         console.log(err)
         return { props: { baconIpsum: JSON.stringify(err) } }

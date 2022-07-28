@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/",
-  "proxy": "https://bf.dallemini.ai/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
