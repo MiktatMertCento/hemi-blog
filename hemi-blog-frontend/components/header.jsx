@@ -43,8 +43,8 @@ export default function HeaderComponent(props) {
     }
   ]
 
-  const handleRoute = menu => {
-    router.push(menu.path)
+  const handleRoute = async menu => {
+    await router.push(menu.path)
   }
 
   return (
@@ -99,7 +99,7 @@ export default function HeaderComponent(props) {
                 </Menu>
               </Box>
 
-              <IconButton icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} variant='outline' />
+              <IconButton icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} onClick={toggleColorMode} variant='outline'  aria-label="Temayı Değiştir"/>
             </Stack>
           </Flex>
         </Flex>

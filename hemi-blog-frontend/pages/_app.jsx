@@ -3,6 +3,9 @@ import Footer from '../components/footer'
 import Header from '../components/header'
 import '../styles/globals.css'
 import NextNProgress from "nextjs-progressbar";
+import moment from 'moment';
+import 'moment/locale/tr';
+moment.locale('tr')
 
 function MyApp({ Component, pageProps }) {
   return (

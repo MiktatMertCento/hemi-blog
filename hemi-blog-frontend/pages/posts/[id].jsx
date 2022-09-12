@@ -10,14 +10,17 @@ import axios from 'axios';
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
+
 import("highlight.js/styles/solarized-dark.css");
 import { CgShare } from "react-icons/cg"
+import { publicAxios } from "../../service/publicAxios";
+import moment from "moment";
 
 export default function PostDetailPage(props) {
     const router = useRouter();
-    const { id } = router.query
+    const {id} = router.query
 
-    const { colorMode } = useColorMode();
+    const {colorMode} = useColorMode();
     const [style, setStyle] = useState(colorMode);
     useEffect(() => {
         if (style === "dark") {
@@ -49,38 +52,38 @@ export default function PostDetailPage(props) {
     return (
         <>
             <Head>
-                <title>{`Miktat Cento -  ${props.article.articleTitle}`}</title>
+                <title>{`${props.article.author.authorName} -  ${props.article.articleTitle}`}</title>
             </Head>
 
             <Grid templateColumns='repeat(12, 1fr)'>
-                <GridItem display={{ base: "none", md: "block" }} colSpan={{ base: 0, md: 2 }}>
+                <GridItem display={{base: "none", md: "block"}} colSpan={{base: 0, md: 2}}>
 
                 </GridItem>
 
-                <GridItem overflowY="hidden" padding={{ base: 0, md: 10 }} colSpan={{ base: 12, md: 7 }} >
-                    <Flex gap={4}>
-                        <Avatar name='Miktat Cento' border="1px" src='https://avatars.githubusercontent.com/u/59205839?v=4' size='lg' />
+                <GridItem overflowY="hidden" padding={{base: 0, md: 10}} colSpan={{base: 12, md: 7}}>
+                    <Flex gap={4} marginTop={{base: 5, md: 0}}>
+                        <Avatar name={props.article.author.authorName} border="1px" src={props.article.author.authorProfilePhoto} size='lg'/>
                         <Flex flexDir="column" gap={2} w="100%">
                             <Flex justifyContent="space-between" alignItems="center">
                                 <Heading fontSize='2rem'>
-                                    Miktat Cento
+                                    {props.article.author.authorName}
                                 </Heading>
 
-                                <Flex gap={1} display={{ base: "none", md: "block" }}>
-                                    <IconButton icon={<CgShare />} onClick={handleShare} variant="ghost" />
-                                    <IconButton icon={<LinkIcon />} onClick={handleCopy} variant="ghost" />
+                                <Flex gap={1} display={{base: "none", md: "block"}}>
+                                    <IconButton icon={<CgShare/>} onClick={handleShare} variant="ghost"/>
+                                    <IconButton icon={<LinkIcon/>} onClick={handleCopy} variant="ghost"/>
                                 </Flex>
                             </Flex>
 
                             <Flex gap={2} alignItems="center">
-                                <Text fontSize='0.75rem'>Nov 25, 2020</Text>
+                                <Text fontSize='0.75rem'>{moment(props.article.createdDate).format("LL")}</Text>
                                 <Text>·</Text>
                                 <Text fontSize='0.75rem'>7 min read</Text>
                             </Flex>
 
-                            <Flex gap={2} display={{ base: "flex", md: "none" }}>
-                                <IconButton icon={<CgShare />} onClick={handleShare} variant="outline" />
-                                <IconButton icon={<LinkIcon />} onClick={handleCopy} variant="outline" />
+                            <Flex gap={2} display={{base: "flex", md: "none"}}>
+                                <IconButton icon={<CgShare/>} onClick={handleShare} variant="outline"/>
+                                <IconButton icon={<LinkIcon/>} onClick={handleCopy} variant="outline"/>
                             </Flex>
                         </Flex>
                     </Flex>
@@ -99,7 +102,7 @@ export default function PostDetailPage(props) {
 
                 </GridItem>
 
-                <GridItem display={{ base: "none", md: "block" }} colSpan={{ base: 0, md: 3 }}>
+                <GridItem display={{base: "none", md: "block"}} colSpan={{base: 0, md: 3}}>
 
                 </GridItem>
             </Grid>
@@ -107,13 +110,13 @@ export default function PostDetailPage(props) {
     )
 }
 
-export async function getServerSideProps({ res, query }) {
+export async function getServerSideProps({res, query}) {
     try {
-        const response = await axios.get("https://BlogBackend.miktatcento.repl.co/articles", {
-            data: { id: query.id }
+        const response = await publicAxios.get("/articles", {
+            data: {id: query.id, isDetailed: true}
         })
 
-        return { props: { article: response.data.articles[0] } }
+        return {props: {article: response.data.articles[0]}}
     } catch (err) {
         return {
             notFound: true

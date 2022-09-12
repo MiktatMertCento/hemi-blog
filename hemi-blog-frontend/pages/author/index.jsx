@@ -3,6 +3,7 @@ import axios from 'axios'
 import Head from 'next/head'
 import PostComponent from '../../components/post'
 import TitleComponent from '../../components/title'
+import { publicAxios } from "../../service/publicAxios";
 
 export default function PostsPage({ articles }) {
   return (
@@ -33,7 +34,7 @@ export default function PostsPage({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const res = await axios.get("https://BlogBackend.miktatcento.repl.co/articles", {
+  const res = await publicAxios.get("/articles", {
     data: {  }
   })
 

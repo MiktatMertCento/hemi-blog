@@ -12,6 +12,7 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import("highlight.js/styles/solarized-dark.css");
 import { CgShare } from "react-icons/cg"
+import { publicAxios } from "../../service/publicAxios";
 
 export default function PostDetailPage(props) {
     const router = useRouter();
@@ -109,7 +110,7 @@ export default function PostDetailPage(props) {
 
 export async function getServerSideProps({ res, query }) {
     try {
-        const response = await axios.get("https://BlogBackend.miktatcento.repl.co/articles", {
+        const response = await publicAxios.get("/articles", {
             data: { id: query.id }
         })
 
