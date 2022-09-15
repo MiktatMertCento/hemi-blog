@@ -34,7 +34,7 @@ export default function PostsPage({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const res = await publicAxios.get("/articles", {
+  const res = await publicAxios.get("/getArticles", {
     data: {  }
   })
 

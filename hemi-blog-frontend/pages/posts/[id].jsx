@@ -16,6 +16,7 @@ import { CgShare } from "react-icons/cg"
 import { publicAxios } from "../../service/publicAxios";
 import moment from "moment";
 
+
 export default function PostDetailPage(props) {
     const router = useRouter();
     const {id} = router.query
@@ -65,7 +66,7 @@ export default function PostDetailPage(props) {
                         <Avatar name={props.article.author.authorName} border="1px" src={props.article.author.authorProfilePhoto} size='lg'/>
                         <Flex flexDir="column" gap={2} w="100%">
                             <Flex justifyContent="space-between" alignItems="center">
-                                <Heading fontSize='2rem'>
+                                <Heading fontSize='2rem' _hover={{textDecoration: "underline", cursor: "pointer"}} onClick={()=>router.push(`/author/${props.article.author._id}`)}>
                                     {props.article.author.authorName}
                                 </Heading>
 
@@ -112,7 +113,7 @@ export default function PostDetailPage(props) {
 
 export async function getServerSideProps({res, query}) {
     try {
-        const response = await publicAxios.get("/articles", {
+        const response = await publicAxios.get("/getArticles", {
             data: {id: query.id, isDetailed: true}
         })
 
