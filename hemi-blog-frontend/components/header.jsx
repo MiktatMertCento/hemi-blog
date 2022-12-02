@@ -35,7 +35,7 @@ export default function HeaderComponent(props) {
     },
     {
       title: "Postlar",
-      path: "/posts"
+      path: "/post"
     },
     {
       title: "Hakkında",

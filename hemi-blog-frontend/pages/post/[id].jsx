@@ -37,7 +37,7 @@ export default function PostDetailPage(props) {
         const shareData = {
             title: `Miktat Cento -  ${props.article.articleTitle}`,
             text: "Seninle paylaşılan bu içeriği okumak için hemen gel!",
-            url: `https://hemi-blog.vercel.app/posts/${id}`
+            url: `https://hemi-blog.vercel.app/post/${id}`
         }
         if (navigator.canShare(shareData)) {
             navigator.share(shareData)
@@ -47,7 +47,7 @@ export default function PostDetailPage(props) {
     }
 
     const handleCopy = e => {
-        navigator.clipboard.writeText(`https://hemi-blog.vercel.app/posts/${id}`)
+        navigator.clipboard.writeText(`https://hemi-blog.vercel.app/post/${id}`)
     }
 
     return (
@@ -79,7 +79,7 @@ export default function PostDetailPage(props) {
                             <Flex gap={2} alignItems="center">
                                 <Text fontSize='0.75rem'>{moment(props.article.createdDate).format("LL")}</Text>
                                 <Text>·</Text>
-                                <Text fontSize='0.75rem'>7 min read</Text>
+                                <Box px={2} py={1} backgroundColor="blackAlpha.200" rounded={20}><Text fontSize='0.75rem'>~{props.article.readingTime} dk okuma süresi</Text></Box>
                             </Flex>
 
                             <Flex gap={2} display={{base: "flex", md: "none"}}>
