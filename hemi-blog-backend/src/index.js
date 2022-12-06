@@ -18,7 +18,12 @@ app.use(express.json())
 app.disable('x-powered-by')
 
 const uri = 'mongodb+srv://miktat:miktatCENTO7@miktatcentoorg.3nauz.mongodb.net/?retryWrites=true&w=majority'
-const client = new MongoClient(uri)
+const client = new MongoClient(uri);
+await client.connect();
+const blogDatabase = client.db('blog')
+const articlesCol = blogDatabase.collection('articles')
+const authorsCol = blogDatabase.collection('authors')
+const tagsCol = blogDatabase.collection('tags')
 const axios = generalAxios.create({
     baseURL: "https://BlogBackend.miktatcento.repl.co",
 });
@@ -30,12 +35,6 @@ app.get('/', (req, res) => {
 app.get('/getArticles', async (req, res) => {
     try {
         const {authorId, id, limit, isDetailed, tagId} = req.body
-        await client.connect()
-        const articlesDb = client.db('blog')
-        const articlesCol = articlesDb.collection('articles')
-        const authorsCol = articlesDb.collection('authors')
-        const tagsCol = articlesDb.collection('tags')
-
         const query = {}
         if (id) query._id = new ObjectId(id)
         if (authorId) query.authorId = authorId
@@ -71,12 +70,7 @@ app.get('/getAuthorInfoWtihId', async (req, res) => {
     try {
         const {authorId} = req.body;
         if (authorId) {
-            await client.connect()
-            const blogDb = client.db('blog')
-            const authorsCol = blogDb.collection('authors')
-            //const articlesCol = blogDb.collection('articles')
             const foundAuthor = await authorsCol.findOne({_id: new ObjectId(authorId)})
-
             const authorArticles = (await axios.get('/getArticles', {data: {authorId:authorId}})).data.articles
 
             const publicAuthorInfos = {
