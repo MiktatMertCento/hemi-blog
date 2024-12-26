@@ -3,13 +3,17 @@ import cors from 'cors'
 import helmet from 'helmet'
 import {MongoClient, ObjectId} from 'mongodb'
 import generalAxios from 'axios'
-import readingTime from "reading-time";
+import readingTime from "reading-time"
+import dotenv from 'dotenv'
+
+// .env dosyasını yükle
+dotenv.config()
 
 const app = express()
-const port = 3148
+const port = process.env.PORT || 3148
 const corsOptions = {
     origin: ['http://localhost:3000'],
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions))
@@ -17,7 +21,7 @@ app.use(helmet())
 app.use(express.json())
 app.disable('x-powered-by')
 
-const uri = 'mongodb+srv://miktat:miktatCENTO7@miktatcentoorg.3nauz.mongodb.net/?retryWrites=true&w=majority'
+const uri = process.env.MONGODB_URI
 const client = new MongoClient(uri);
 await client.connect();
 const blogDatabase = client.db('blog')
